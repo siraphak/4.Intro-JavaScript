@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intro JavaScript</title>
+  </head>
+
+  <body>
+    <!-- 1.First Project -->
+    <!-- Your Name:
+            <input id="your-name" type="text">
+            <input id="say-hi" type="button" value="Say hi">
+            <script>
+                let yourName = document.getElementById('your-name')
+                let sayHi = document.getElementById('say-hi')
+                sayHi.onclick = () => {
+                    let message = "Hi," + yourName.value
+                    alert(message)
+                }
+            </script> -->
+
+    <!-- 2.Adder -->
+    <!-- <input type="text" size="8" id="a">
+            +
+            <input type="text" size="8" id="b">
+            <input type="button" value="=" id="calculate">
+            <input type="text" size="8" readonly id="c">
+        
+            <script>
+                let calculate = document.getElementById('calculate')
+                let a = document.getElementById('a')
+                let b = document.getElementById('b')
+                let c = document.getElementById('c')
+                calculate.onclick = () => {
+                    let answer = Number(a.value) + Number(b.value)
+                    c.value = answer
+                }
+            </script> -->
+
+    <!-- 3.Counter -->
+    <!-- <h1>Counter</h1>
+            <input value="0" readonly id="number">
+            <input type="button" value="+" id="increment">
+            <input type="button" value="Reset" id="reset">
+            <script>
+                let count = 0
+                let increment = document.getElementById('increment')
+                let number = document.getElementById('number')
+                let reset = document.getElementById('reset')
+                increment.onclick = () => {
+                    count = count+1
+                    number.value = count
+                } 
+                reset.onclick = () => {
+                    count = 0
+                    number.value = 0
+                }
+            </script> -->
+
+    <!-- 4.Simple Quiz-->
+    <!-- <h1>Simple Quiz</h1>
+    <div id="beforeAnswer">
+      <p id="question"><b>คำถาม</b> JavaScript ถูกสร้างขึ้นเมื่อปีไหน</p>
+      <input type="button" id="choiceA" value="(A) 1993" />
+      <input type="button" id="choiceB" value="(B) 1994" />
+      <input type="button" id="choiceC" value="(C) 1995" />
+      <input type="button" id="choiceD" value="(D) 1996" />
+    </div>
+    <p id="correctFeedback" hidden>
+      <b>ถูกต้อง</b>
+    </p>
+    <div id="incorrectFeedback" hidden>
+      <p>
+        <b>ไม่ถูกต้อง</b>
+      </p>
+      <input type="button" id="tryAgin" value="ลองอีกครั้ง" />
+    </div>
+
+    <script>
+      let beforeAnswer = document.getElementById("beforeAnswer");
+      let correctFeedback = document.getElementById("correctFeedback");
+      let incorrectFeedback = document.getElementById("incorrectFeedback");
+      let tryAgin = document.getElementById("tryAgin");
+      let question = document.getElementById("quertion");
+      let choiceA = document.getElementById("choiceA");
+      let choiceB = document.getElementById("choiceB");
+      let choiceC = document.getElementById("choiceC");
+      let choiceD = document.getElementById("choiceD");
+
+      let handleIncorrectAnswer = () => {
+        beforeAnswer.hidden = true;
+        incorrectFeedback.hidden = false;
+      };
+      let handleCorrectAnswer = () => {
+        beforeAnswer.hidden = true;
+        correctFeedback.hidden = false;
+      };
+
+      tryAgin.onclick = () => {
+        incorrectFeedback.hidden = true;
+        beforeAnswer.hidden = false;
+      };
+
+      choiceA.onclick = handleIncorrectAnswer;
+      choiceB.onclick = handleIncorrectAnswer;
+      // เขียน Function แบบเต็ม
+      choiceC.onclick = () => {
+        handleCorrectAnswer();
+      };
+      choiceD.onclick = handleIncorrectAnswer;
+    </script> -->
+
+    <!-- 5.Randomizer -->
+    <!-- <h1>Randomizer</h1>
+    <input id="number" type="text" size="5" readonly />
+    <input id="random" type="button" value="Randomizer" />
+    <script>
+      let number = document.getElementById("number");
+      let random = document.getElementById("random");
+      random.onclick = () => {
+        number.value = Math.floor(Math.random() * 10) + 1;
+      };
+    </script> -->
+
+    <!-- 6.Coin Flipper -->
+    <!-- <h1>Coin Flipper</h1>
+    <input type="button" value="Flip a coin" id="flip" />
+    <script>
+      let flip = document.getElementById("flip");
+      flip.onclick = () => {
+        let randomNumber = Math.random();
+        if (randomNumber < 0.5) {
+          alert("Head");
+        } else {
+          alert("Tails");
+        }
+      };
+    </script> -->
+
+    <!-- 7.Check -->
+    <!-- <p>
+      <input type="checkbox" id="accpetTerms" />
+      <label for="accpetTerms">I agree to the Terms nad Conditions</label>
+    </p>
+    <p>
+      <input type="checkbox" id="accpetPrivcyPolicy" />
+      <label for="accpetPrivcyPolicy">I agree to the Privcy Policy</label>
+    </p>
+    <p>
+      <input type="button" id="signUpButton" value="Sign Up" disabled />
+    </p>
+
+    <script>
+      let accpetTerms = document.getElementById("acceptTerms");
+      let accpetPrivcyPolicy = document.getElementById("acceptPrivcyPolicy");
+      let signUpButton = document.getElementById("signUpButton");
+
+      let updateSignUpButton = () => {
+        signUpButton.disabled =
+          !accpetTerms.checked || !accpetPrivcyPolicy.checked;
+      };
+
+      accpetTerms.onchange = () => {
+        updateSignUpButton();
+      };
+      accpetPrivcyPolicy.onchange = () => {
+        updateSignUpButton();
+      };
+      signUpButton.onclick = () => {
+        alert("Sign up button clicked!");
+      };
+    </script> -->
+
+    <!-- 8.Flashcard -->
+    <h1>Flashcard</h1>
+
+    <div id="front">
+      <h2 id="questionText">Question</h2>
+      <button id="revealAnswer">👀 Reveal answer</button>
+    </div>
+
+    <div id="back" hidden>
+      <h2 id="answerText">Answer</h2>
+      <button id="nextQuestion">Next question ➡️</button>
+    </div>
+
+    <script>
+      let front = document.getElementById("front");
+      let back = document.getElementById("back");
+      let questionText = document.getElementById("questionText");
+      let revealAnswer = document.getElementById("revealAnswer");
+      let answerText = document.getElementById("answerText");
+      let nextQuestion = document.getElementById("nextQuestion");
+
+      let getRandomQuestionNumber = () => {
+        return Math.floor(Math.random() * 10) + 1;
+      };
+
+      let getQuestion = (questionNumber) => {
+        if (questionNumber === 1) {
+          return "木";
+        } else if (questionNumber === 2) {
+          return "山";
+        } else if (questionNumber === 3) {
+          return "日";
+        } else if (questionNumber === 4) {
+          return "月";
+        } else if (questionNumber === 5) {
+          return "雨";
+        } else if (questionNumber === 6) {
+          return "火";
+        } else if (questionNumber === 7) {
+          return "土";
+        } else if (questionNumber === 8) {
+          return "風";
+        } else if (questionNumber === 9) {
+          return "川";
+        } else if (questionNumber === 10) {
+          return "花";
+        }
+      };
+
+      let getAnswer = (questionNumber) => {
+        if (questionNumber === 1) {
+          return "Tree";
+        } else if (questionNumber === 2) {
+          return "Mountain";
+        } else if (questionNumber === 3) {
+          return "Sun";
+        } else if (questionNumber === 4) {
+          return "Moon";
+        } else if (questionNumber === 5) {
+          return "Rain";
+        } else if (questionNumber === 6) {
+          return "Fire";
+        } else if (questionNumber === 7) {
+          return "Earth";
+        } else if (questionNumber === 8) {
+          return "Wind";
+        } else if (questionNumber === 9) {
+          return "River";
+        } else if (questionNumber === 10) {
+          return "Flower";
+        }
+      };
+
+      let questionNumber = getRandomQuestionNumber();
+      questionText.innerText = getQuestion(questionNumber);
+
+      revealAnswer.onclick = () => {
+        front.hidden = true;
+        answerText.innerText = getAnswer(questionNumber);
+        back.hidden = false;
+      };
+
+      nextQuestion.onclick = () => {
+        back.hidden = true;
+        front.hidden = false;
+
+        questionNumber = getRandomQuestionNumber();
+        questionText.innerText = getQuestion(questionNumber);
+      };
+    </script>
+  </body>
+</html>
