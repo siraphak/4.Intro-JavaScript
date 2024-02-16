@@ -193,56 +193,29 @@
       let answerText = document.getElementById("answerText");
       let nextQuestion = document.getElementById("nextQuestion");
 
+      let questionAndAnswers = [
+        { question: "木", answer: "Tree" },
+        { question: "山", answer: "Mountain" },
+        { question: "日", answer: "Sun" },
+        { question: "月", answer: "Moon" },
+        { question: "雨", answer: "Rain" },
+        { question: "火", answer: "Fire" },
+        { question: "土", answer: "Earth" },
+        { question: "花", answer: "Wind" },
+        { question: "風", answer: "River" },
+        { question: "川", answer: "Flower" },
+      ];
+
       let getRandomQuestionNumber = () => {
-        return Math.floor(Math.random() * 10) + 1;
+        return Math.floor(Math.random() * questionAndAnswers.length) + 1;
       };
 
       let getQuestion = (questionNumber) => {
-        if (questionNumber === 1) {
-          return "木";
-        } else if (questionNumber === 2) {
-          return "山";
-        } else if (questionNumber === 3) {
-          return "日";
-        } else if (questionNumber === 4) {
-          return "月";
-        } else if (questionNumber === 5) {
-          return "雨";
-        } else if (questionNumber === 6) {
-          return "火";
-        } else if (questionNumber === 7) {
-          return "土";
-        } else if (questionNumber === 8) {
-          return "風";
-        } else if (questionNumber === 9) {
-          return "川";
-        } else if (questionNumber === 10) {
-          return "花";
-        }
+        return questionAndAnswers[questionNumber - 1].question;
       };
 
       let getAnswer = (questionNumber) => {
-        if (questionNumber === 1) {
-          return "Tree";
-        } else if (questionNumber === 2) {
-          return "Mountain";
-        } else if (questionNumber === 3) {
-          return "Sun";
-        } else if (questionNumber === 4) {
-          return "Moon";
-        } else if (questionNumber === 5) {
-          return "Rain";
-        } else if (questionNumber === 6) {
-          return "Fire";
-        } else if (questionNumber === 7) {
-          return "Earth";
-        } else if (questionNumber === 8) {
-          return "Wind";
-        } else if (questionNumber === 9) {
-          return "River";
-        } else if (questionNumber === 10) {
-          return "Flower";
-        }
+        return questionAndAnswers[questionNumber - 1].answer;
       };
 
       let questionNumber = getRandomQuestionNumber();
